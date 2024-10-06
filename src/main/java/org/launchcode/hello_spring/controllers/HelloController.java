@@ -4,30 +4,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RestController
+//@RestController
 public class HelloController {
 
     //display form
     @RequestMapping(value = "hello", method = RequestMethod.GET)
-    @ResponseBody
+   // @ResponseBody
     public String helloForm() {
-        String html =
-                "<html>" +
-                        "<body>" +
-                        "<form method='post' action='/hello'>" +
-                        "<input type='text' name='name' placeholder='Enter your name' />" +
-                        "<select name='language'>" +
-                        "<option value='english'>English</option>" +
-                        "<option value='french'>French</option>" +
-                        "<option value='italian'>Italian</option>" +
-                        "<option value='spanish'>Spanish</option>" +
-                        "<option value='german'>German</option>" +
-                        "</select>" +
-                        "<input type='submit' value='Greet Me!' />" +
-                        "</form>" +
-                        "</body>" +
-                        "</html>";
-        return html;
+       // String html =
+//                "<html>" +
+//                        "<body>" +
+//                        "<form method='post' action='/hello'>" +
+//                        "<input type='text' name='name' placeholder='Enter your name' />" +
+//                        "<select name='language'>" +
+//                        "<option value='english'>English</option>" +
+//                        "<option value='french'>French</option>" +
+//                        "<option value='italian'>Italian</option>" +
+//                        "<option value='spanish'>Spanish</option>" +
+//                        "<option value='german'>German</option>" +
+//                        "</select>" +
+//                        "<input type='submit' value='Greet Me!' />" +
+//                        "</form>" +
+//                        "</body>" +
+//                        "</html>";
+        return "form";
     }
 
     // Handles the form submission via POST
@@ -44,7 +44,7 @@ public class HelloController {
         // This is subjective, but students should be modifying the HTML of the response string.
     }
 
-    @GetMapping
+    //@GetMapping
     public static String createMessage(String name, String language) {
         String greeting = "";
 
@@ -64,7 +64,9 @@ public class HelloController {
             greeting = "Hallo";
         }
 
-        return greeting + " " + name;
+       // return greeting + " " + name;
+        return "<h1 style='color:blue;'>" + greeting + " " + name + "!</h1>" +
+                "<p>We are happy to greet you in " + language + ".</p>";
     }
 }
 
